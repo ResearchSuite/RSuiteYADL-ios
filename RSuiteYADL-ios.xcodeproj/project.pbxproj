@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF5976C61EF0339A008EF3B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976C51EF0339A008EF3B6 /* AppDelegate.swift */; };
-		CF5976C81EF0339A008EF3B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976C71EF0339A008EF3B6 /* ViewController.swift */; };
-		CF5976CB1EF0339A008EF3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976C91EF0339A008EF3B6 /* Main.storyboard */; };
-		CF5976CE1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF5976CC1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodeld */; };
-		CF5976D01EF0339A008EF3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5976CF1EF0339A008EF3B6 /* Assets.xcassets */; };
+		31ADBC45ACBA05C0FEB01CEC /* Pods_RSuiteYADL_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11AECCB63E2BD68B3569748 /* Pods_RSuiteYADL_ios.framework */; };
 		CF5976D31EF0339A008EF3B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976D11EF0339A008EF3B6 /* LaunchScreen.storyboard */; };
 		CF5976DE1EF0339A008EF3B6 /* RSuiteYADL_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976DD1EF0339A008EF3B6 /* RSuiteYADL_iosTests.swift */; };
+		CF5976E91EF033F9008EF3B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976E81EF033F9008EF3B6 /* AppDelegate.swift */; };
+		CF5976EC1EF03407008EF3B6 /* YADLOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976EA1EF03407008EF3B6 /* YADLOnboardingViewController.swift */; };
+		CF5976ED1EF03407008EF3B6 /* YADLSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976EB1EF03407008EF3B6 /* YADLSettingsViewController.swift */; };
+		CF5976F01EF0340F008EF3B6 /* YADLStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976EE1EF0340F008EF3B6 /* YADLStore.swift */; };
+		CF5976F11EF0340F008EF3B6 /* YADLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976EF1EF0340F008EF3B6 /* YADLViewController.swift */; };
+		CF5976F41EF035A5008EF3B6 /* YADLOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F31EF035A5008EF3B6 /* YADLOnboarding.storyboard */; };
+		CF5976F61EF035AC008EF3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F51EF035AC008EF3B6 /* Main.storyboard */; };
+		CF5976F91EF035DE008EF3B6 /* OMHClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F81EF035DE008EF3B6 /* OMHClient.plist */; };
+		CF5976FB1EF035E5008EF3B6 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */; };
+		CF5976FF1EF035F7008EF3B6 /* YADLSpot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5976FE1EF035F7008EF3B6 /* YADLSpot.json */; };
+		CF5977011EF03602008EF3B6 /* signIn.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977001EF03602008EF3B6 /* signIn.json */; };
+		CF5977031EF0360E008EF3B6 /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977021EF0360E008EF3B6 /* notification.json */; };
+		CF5977051EF03622008EF3B6 /* YADLFull.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977041EF03622008EF3B6 /* YADLFull.json */; };
+		DDFE55598EB2C193BFA6CA81 /* Pods_RSuiteYADL_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54352A2C3ED3C3977CA48D09 /* Pods_RSuiteYADL_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +37,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12366C413FEDDE35310ACEC0 /* Pods-RSuiteYADL-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSuiteYADL-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSuiteYADL-ios/Pods-RSuiteYADL-ios.release.xcconfig"; sourceTree = "<group>"; };
+		3D1926AD4262AFE0AFCFD2B8 /* Pods-RSuiteYADL-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSuiteYADL-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSuiteYADL-iosTests/Pods-RSuiteYADL-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		54352A2C3ED3C3977CA48D09 /* Pods_RSuiteYADL_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSuiteYADL_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF5E5FF3FE48343C44122EC /* Pods-RSuiteYADL-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSuiteYADL-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSuiteYADL-ios/Pods-RSuiteYADL-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		BCD9CA442F326CCAE2E1998C /* Pods-RSuiteYADL-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSuiteYADL-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSuiteYADL-iosTests/Pods-RSuiteYADL-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF5976C21EF0339A008EF3B6 /* RSuiteYADL-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSuiteYADL-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF5976C51EF0339A008EF3B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF5976C71EF0339A008EF3B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CF5976CA1EF0339A008EF3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CF5976CD1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSuiteYADL_ios.xcdatamodel; sourceTree = "<group>"; };
-		CF5976CF1EF0339A008EF3B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5976D21EF0339A008EF3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF5976D41EF0339A008EF3B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF5976D91EF0339A008EF3B6 /* RSuiteYADL-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RSuiteYADL-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5976DD1EF0339A008EF3B6 /* RSuiteYADL_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSuiteYADL_iosTests.swift; sourceTree = "<group>"; };
 		CF5976DF1EF0339A008EF3B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF5976E81EF033F9008EF3B6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF5976EA1EF03407008EF3B6 /* YADLOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLOnboardingViewController.swift; sourceTree = "<group>"; };
+		CF5976EB1EF03407008EF3B6 /* YADLSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLSettingsViewController.swift; sourceTree = "<group>"; };
+		CF5976EE1EF0340F008EF3B6 /* YADLStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLStore.swift; sourceTree = "<group>"; };
+		CF5976EF1EF0340F008EF3B6 /* YADLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLViewController.swift; sourceTree = "<group>"; };
+		CF5976F31EF035A5008EF3B6 /* YADLOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YADLOnboarding.storyboard; sourceTree = "<group>"; };
+		CF5976F51EF035AC008EF3B6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CF5976F81EF035DE008EF3B6 /* OMHClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMHClient.plist; sourceTree = "<group>"; };
+		CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YADL.xcassets; sourceTree = "<group>"; };
+		CF5976FE1EF035F7008EF3B6 /* YADLSpot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YADLSpot.json; sourceTree = "<group>"; };
+		CF5977001EF03602008EF3B6 /* signIn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signIn.json; sourceTree = "<group>"; };
+		CF5977021EF0360E008EF3B6 /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
+		CF5977041EF03622008EF3B6 /* YADLFull.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YADLFull.json; sourceTree = "<group>"; };
+		D11AECCB63E2BD68B3569748 /* Pods_RSuiteYADL_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSuiteYADL_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31ADBC45ACBA05C0FEB01CEC /* Pods_RSuiteYADL_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +77,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFE55598EB2C193BFA6CA81 /* Pods_RSuiteYADL_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B627E43F216F028914CDA0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D11AECCB63E2BD68B3569748 /* Pods_RSuiteYADL_ios.framework */,
+				54352A2C3ED3C3977CA48D09 /* Pods_RSuiteYADL_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E448D8B7B08FE4C96668BB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AF5E5FF3FE48343C44122EC /* Pods-RSuiteYADL-ios.debug.xcconfig */,
+				12366C413FEDDE35310ACEC0 /* Pods-RSuiteYADL-ios.release.xcconfig */,
+				3D1926AD4262AFE0AFCFD2B8 /* Pods-RSuiteYADL-iosTests.debug.xcconfig */,
+				BCD9CA442F326CCAE2E1998C /* Pods-RSuiteYADL-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CF5976B91EF0339A008EF3B6 = {
 			isa = PBXGroup;
 			children = (
 				CF5976C41EF0339A008EF3B6 /* RSuiteYADL-ios */,
 				CF5976DC1EF0339A008EF3B6 /* RSuiteYADL-iosTests */,
 				CF5976C31EF0339A008EF3B6 /* Products */,
+				1E448D8B7B08FE4C96668BB6 /* Pods */,
+				1B627E43F216F028914CDA0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +127,14 @@
 		CF5976C41EF0339A008EF3B6 /* RSuiteYADL-ios */ = {
 			isa = PBXGroup;
 			children = (
-				CF5976C51EF0339A008EF3B6 /* AppDelegate.swift */,
-				CF5976C71EF0339A008EF3B6 /* ViewController.swift */,
-				CF5976C91EF0339A008EF3B6 /* Main.storyboard */,
-				CF5976CF1EF0339A008EF3B6 /* Assets.xcassets */,
-				CF5976D11EF0339A008EF3B6 /* LaunchScreen.storyboard */,
-				CF5976D41EF0339A008EF3B6 /* Info.plist */,
-				CF5976CC1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodeld */,
+				CF5976FC1EF035EA008EF3B6 /* config */,
+				CF5976F71EF035C4008EF3B6 /* Support Files */,
+				CF5976F21EF03596008EF3B6 /* Storyboards */,
+				CF5976E81EF033F9008EF3B6 /* AppDelegate.swift */,
+				CF5976EA1EF03407008EF3B6 /* YADLOnboardingViewController.swift */,
+				CF5976EB1EF03407008EF3B6 /* YADLSettingsViewController.swift */,
+				CF5976EE1EF0340F008EF3B6 /* YADLStore.swift */,
+				CF5976EF1EF0340F008EF3B6 /* YADLViewController.swift */,
 			);
 			path = "RSuiteYADL-ios";
 			sourceTree = "<group>";
@@ -99,6 +148,45 @@
 			path = "RSuiteYADL-iosTests";
 			sourceTree = "<group>";
 		};
+		CF5976F21EF03596008EF3B6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CF5976D11EF0339A008EF3B6 /* LaunchScreen.storyboard */,
+				CF5976F31EF035A5008EF3B6 /* YADLOnboarding.storyboard */,
+				CF5976F51EF035AC008EF3B6 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CF5976F71EF035C4008EF3B6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF5976D41EF0339A008EF3B6 /* Info.plist */,
+				CF5976F81EF035DE008EF3B6 /* OMHClient.plist */,
+				CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		CF5976FC1EF035EA008EF3B6 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				CF5976FD1EF035F0008EF3B6 /* json */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		CF5976FD1EF035F0008EF3B6 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				CF5976FE1EF035F7008EF3B6 /* YADLSpot.json */,
+				CF5977041EF03622008EF3B6 /* YADLFull.json */,
+				CF5977021EF0360E008EF3B6 /* notification.json */,
+				CF5977001EF03602008EF3B6 /* signIn.json */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF5976E21EF0339A008EF3B6 /* Build configuration list for PBXNativeTarget "RSuiteYADL-ios" */;
 			buildPhases = (
+				762AFC8015175089DA712D02 /* [CP] Check Pods Manifest.lock */,
 				CF5976BE1EF0339A008EF3B6 /* Sources */,
 				CF5976BF1EF0339A008EF3B6 /* Frameworks */,
 				CF5976C01EF0339A008EF3B6 /* Resources */,
+				EA96E765FA69D77567341CC7 /* [CP] Embed Pods Frameworks */,
+				A3E4482F24C6E910D81594A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF5976E51EF0339A008EF3B6 /* Build configuration list for PBXNativeTarget "RSuiteYADL-iosTests" */;
 			buildPhases = (
+				4F3D7804EDE611793A669A08 /* [CP] Check Pods Manifest.lock */,
 				CF5976D51EF0339A008EF3B6 /* Sources */,
 				CF5976D61EF0339A008EF3B6 /* Frameworks */,
 				CF5976D71EF0339A008EF3B6 /* Resources */,
+				D389DF5B0C582161116B698E /* [CP] Embed Pods Frameworks */,
+				505D68407B579A341F759888 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,10 +243,13 @@
 				TargetAttributes = {
 					CF5976C11EF0339A008EF3B6 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = E8AN4S9FD3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					CF5976D81EF0339A008EF3B6 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CF5976C11EF0339A008EF3B6;
 					};
@@ -182,9 +279,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5977031EF0360E008EF3B6 /* notification.json in Resources */,
+				CF5976F91EF035DE008EF3B6 /* OMHClient.plist in Resources */,
+				CF5976F41EF035A5008EF3B6 /* YADLOnboarding.storyboard in Resources */,
+				CF5976FB1EF035E5008EF3B6 /* YADL.xcassets in Resources */,
+				CF5977011EF03602008EF3B6 /* signIn.json in Resources */,
+				CF5976FF1EF035F7008EF3B6 /* YADLSpot.json in Resources */,
+				CF5977051EF03622008EF3B6 /* YADLFull.json in Resources */,
 				CF5976D31EF0339A008EF3B6 /* LaunchScreen.storyboard in Resources */,
-				CF5976D01EF0339A008EF3B6 /* Assets.xcassets in Resources */,
-				CF5976CB1EF0339A008EF3B6 /* Main.storyboard in Resources */,
+				CF5976F61EF035AC008EF3B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,14 +300,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F3D7804EDE611793A669A08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		505D68407B579A341F759888 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSuiteYADL-iosTests/Pods-RSuiteYADL-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		762AFC8015175089DA712D02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E4482F24C6E910D81594A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSuiteYADL-ios/Pods-RSuiteYADL-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D389DF5B0C582161116B698E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSuiteYADL-iosTests/Pods-RSuiteYADL-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA96E765FA69D77567341CC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSuiteYADL-ios/Pods-RSuiteYADL-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF5976BE1EF0339A008EF3B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5976C81EF0339A008EF3B6 /* ViewController.swift in Sources */,
-				CF5976C61EF0339A008EF3B6 /* AppDelegate.swift in Sources */,
-				CF5976CE1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodeld in Sources */,
+				CF5976EC1EF03407008EF3B6 /* YADLOnboardingViewController.swift in Sources */,
+				CF5976E91EF033F9008EF3B6 /* AppDelegate.swift in Sources */,
+				CF5976ED1EF03407008EF3B6 /* YADLSettingsViewController.swift in Sources */,
+				CF5976F11EF0340F008EF3B6 /* YADLViewController.swift in Sources */,
+				CF5976F01EF0340F008EF3B6 /* YADLStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,14 +425,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CF5976C91EF0339A008EF3B6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF5976CA1EF0339A008EF3B6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CF5976D11EF0339A008EF3B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -341,20 +531,27 @@
 		};
 		CF5976E31EF0339A008EF3B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AF5E5FF3FE48343C44122EC /* Pods-RSuiteYADL-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "RSuiteYADL-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christinatsangouri.RSuiteYADL-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		CF5976E41EF0339A008EF3B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12366C413FEDDE35310ACEC0 /* Pods-RSuiteYADL-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "RSuiteYADL-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christinatsangouri.RSuiteYADL-ios";
@@ -365,6 +562,7 @@
 		};
 		CF5976E61EF0339A008EF3B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1926AD4262AFE0AFCFD2B8 /* Pods-RSuiteYADL-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -379,6 +577,7 @@
 		};
 		CF5976E71EF0339A008EF3B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCD9CA442F326CCAE2E1998C /* Pods-RSuiteYADL-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -410,6 +609,7 @@
 				CF5976E41EF0339A008EF3B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF5976E51EF0339A008EF3B6 /* Build configuration list for PBXNativeTarget "RSuiteYADL-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -418,21 +618,9 @@
 				CF5976E71EF0339A008EF3B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CF5976CC1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CF5976CD1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodel */,
-			);
-			currentVersion = CF5976CD1EF0339A008EF3B6 /* RSuiteYADL_ios.xcdatamodel */;
-			path = RSuiteYADL_ios.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CF5976BA1EF0339A008EF3B6 /* Project object */;
 }

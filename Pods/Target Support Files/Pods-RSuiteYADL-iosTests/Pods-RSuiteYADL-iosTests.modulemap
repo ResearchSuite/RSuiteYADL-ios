@@ -1,0 +1,6 @@
+framework module Pods_RSuiteYADL_iosTests {
+  umbrella header "Pods-RSuiteYADL-iosTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

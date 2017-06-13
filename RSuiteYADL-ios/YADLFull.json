@@ -1,0 +1,188 @@
+{
+      "type": "recurring",
+      "identifier": "yadl_full",
+      "title": "YADL Full Intake Survey",
+      "guid": "yadl_full-1",
+      "activity": {
+        "type"      : "elementList",
+        "identifier": "yadl_full_assessment",
+        "elements"   : [
+          {
+            "identifier"   : "introduction",
+            "type"         : "instruction",
+            "title"        : "Welcome to the YADL Full Assessment",
+            "text"         : "Please rate each activity as \nEasy, Moderate, or Hard"
+          },
+          {
+            "identifier": "yadl_full",
+            "type": "YADLFullAssessment",
+            "text": "Over the past week, how difficult was this activity for you?",
+            "choices":[
+              {
+                "text":"Easy",
+                "value":"easy",
+                "color":"#258313"
+              },
+              {
+                "text":"Moderate",
+                "value":"moderate",
+                "color":"#F0743E"
+              },
+              {
+                "text":"Hard",
+                "value":"hard",
+                "color":"#D20005"
+              }
+            ],
+            "imageExtension": "png",
+            "items": [
+              {
+                "imageTitle":"stance_base_of_support_1",
+                "description":"Stance / Base Of Support",
+                "identifier":"stance_base_of_support_1"
+              },
+              {
+                "imageTitle":"stance_base_of_support_2",
+                "description":"Stance / Base Of Support",
+                "identifier":"stance_base_of_support_2"
+              },
+              {
+                "imageTitle":"stance_base_of_support_3",
+                "description":"Stance / Base Of Support",
+                "identifier":"stance_base_of_support_3"
+              },
+              {
+                "imageTitle":"stance_base_of_support_4",
+                "description":"Stance / Base Of Support",
+                "identifier":"stance_base_of_support_4"
+              },
+              {
+                "imageTitle":"base_of_support_1",
+                "description":"Base Of Support",
+                "identifier":"base_of_support_1"
+              },
+              {
+                "imageTitle":"base_of_support_2",
+                "description":"Base Of Support",
+                "identifier":"base_of_support_2"
+              },
+              {
+                "imageTitle":"walk_1",
+                "description":"Walk",
+                "identifier":"walk_1"
+              },
+              {
+                "imageTitle":"walk_2",
+                "description":"Walk",
+                "identifier":"walk_2"
+              },
+              {
+                "imageTitle":"walk_3",
+                "description":"Walk",
+                "identifier":"walk_3"
+              },
+              {
+                "imageTitle":"jump_1",
+                "description":"Jump",
+                "identifier":"jump_1"
+              },
+              {
+                "imageTitle":"jump_2",
+                "description":"Jump",
+                "identifier":"jump_2"
+              },
+              {
+                "imageTitle":"jump_3",
+                "description":"Jump",
+                "identifier":"jump_3"
+              },
+              {
+                "imageTitle":"jump_4",
+                "description":"Jump",
+                "identifier":"jump_4"
+              },
+              {
+                "imageTitle":"jump_5",
+                "description":"Jump",
+                "identifier":"jump_5"
+              },
+              {
+                "imageTitle":"jump_6",
+                "description":"Jump",
+                "identifier":"jump_6"
+              },
+              {
+                "imageTitle":"kick_1",
+                "description":"Kick",
+                "identifier":"kick_1"
+              },
+              {
+                "imageTitle":"kick_2",
+                "description":"Kick",
+                "identifier":"kick_2"
+              },
+              {
+                "imageTitle":"throw_lift_1",
+                "description":"Throw / Lift",
+                "identifier":"throw_lift_1"
+              },
+              {
+                "imageTitle":"throw_lift_2",
+                "description":"Throw / Lift",
+                "identifier":"throw_lift_2"
+              },
+              {
+                "imageTitle":"throw_lift_3",
+                "description":"Throw / Lift",
+                "identifier":"throw_lift_3"
+              },
+              {
+                "imageTitle":"throw_lift_4",
+                "description":"Throw / Lift",
+                "identifier":"throw_lift_4"
+              },
+              {
+                "imageTitle":"turn",
+                "description":"Turn",
+                "identifier":"turn"
+              }
+            ]
+          }
+        ]
+      },
+      "resultTransforms": [
+        {
+            "transform": "YADLFullRaw",
+            "inputMapping": [
+              {"parameter":"stance_base_of_support_1", "stepIdentifier":"yadl_full.stance_base_of_support_1"},
+              {"parameter":"stance_base_of_support_2", "stepIdentifier":"yadl_full.stance_base_of_support_2"},
+              {"parameter":"stance_base_of_support_3", "stepIdentifier":"yadl_full.stance_base_of_support_3"},
+              {"parameter":"stance_base_of_support_4", "stepIdentifier":"yadl_full.stance_base_of_support_4"},
+              {"parameter":"base_of_support_1", "stepIdentifier":"yadl_full.base_of_support_1"},
+              {"parameter":"base_of_support_2", "stepIdentifier":"yadl_full.base_of_support_2"},
+              {"parameter":"walk_1", "stepIdentifier":"yadl_full.walk_1"},
+              {"parameter":"walk_2", "stepIdentifier":"yadl_full.walk_2"},
+              {"parameter":"walk_3", "stepIdentifier":"yadl_full.walk_3"},
+              {"parameter":"jump_1", "stepIdentifier":"yadl_full.jump_1"},
+              {"parameter":"jump_2", "stepIdentifier":"yadl_full.jump_2"},
+              {"parameter":"jump_3", "stepIdentifier":"yadl_full.jump_3"},
+              {"parameter":"jump_4", "stepIdentifier":"yadl_full.jump_4"},
+              {"parameter":"jump_5", "stepIdentifier":"yadl_full.jump_5"},
+              {"parameter":"jump_6", "stepIdentifier":"yadl_full.jump_6"},
+              {"parameter":"kick_1", "stepIdentifier":"yadl_full.kick_1"},
+              {"parameter":"kick_2", "stepIdentifier":"yadl_full.kick_2"},
+              {"parameter":"throw_lift_1", "stepIdentifier":"yadl_full.throw_lift_1"},
+              {"parameter":"throw_lift_2", "stepIdentifier":"yadl_full.throw_lift_2"},
+              {"parameter":"throw_lift_3", "stepIdentifier":"yadl_full.throw_lift_3"},
+              {"parameter":"throw_lift_4", "stepIdentifier":"yadl_full.throw_lift_4"},
+              {"parameter":"turn", "stepIdentifier":"yadl_full.turn"},
+              {"parameter": "schemaID", "constant":{
+                "namespace": "Cornell",
+                "name": "yadl-full-assessment-dance",
+                "version": "1.0"
+                }
+              }
+            ]
+          }
+      ]
+    }

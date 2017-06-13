@@ -1,0 +1,29 @@
+{
+  "type": "elementList",
+  "identifier": "signIn",
+  "elements": [
+    {
+      "identifier": "welcome_instructions",
+      "type": "instruction",
+      "title": "Hi! 👋👋",
+      "text": "Welcome to the YADL"
+    },
+    {
+      "identifier": "getting_started_instructions",
+      "type": "instruction",
+      "title": "Getting Started",
+      "text": "First, you're going to need to sign in.\nIn the next step, please provide your Ohmage-OMH credentials."
+    },
+    {
+      "identifier": "OhmageOMHLogin",
+      "type": "OhmageOMHLogin",
+      "title": "Sign In",
+      "text": "Please enter your Ohmage-OMH credentials to sign in."
+    },
+    {
+      "identifier": "onboarding_completed_instructions",
+      "type": "instruction",
+      "title": "Onboarding Done!\n👏👏👏"
+    }
+  ]
+}

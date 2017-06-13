@@ -1,0 +1,164 @@
+{
+    "type": "recurring",
+    "identifier": "yadl_spot",
+    "title": "YADL Spot Assessment",
+    "guid": "yadl_spot-1",
+    "activity": {
+        "type"      : "elementList",
+        "identifier": "yadl_spot_assessment",
+        "elements"   : [
+                        
+                        {
+                        "identifier"   : "introduction",
+                        "type"         : "instruction",
+                        "title"        : "Welcome to the YADL Spot Assessment",
+                        "text"         : "Please select the activities that you have trouble with."
+                        },
+                        {
+                        "identifier": "yadl_spot",
+                        "type": "YADLSpotAssessment",
+                        "title": "Which activities did you have trouble with today?",
+                        "somethingSelectedButtonColor":"#0080ff",
+                        "nothingSelectedButtonColor":"#FCC103",
+                        "itemCellSelectedColor":"#7FEE7D",
+                        "itemCellSelectedOverlayImageTitle":"first_tab",
+                        "itemsPerRow":3,
+                        "itemMinSpacing":10.0,
+                        "filterKey": "activity_identifiers",
+                        "imageExtension": "png",
+                        "items": [
+                                  {
+                                  "imageTitle":"stance_base_of_support_1",
+                                  "description":"Stance / Base Of Support",
+                                  "identifier":"stance_base_of_support_1"
+                                  },
+                                  {
+                                  "imageTitle":"stance_base_of_support_2",
+                                  "description":"Stance / Base Of Support",
+                                  "identifier":"stance_base_of_support_2"
+                                  },
+                                  {
+                                  "imageTitle":"stance_base_of_support_3",
+                                  "description":"Stance / Base Of Support",
+                                  "identifier":"stance_base_of_support_3"
+                                  },
+                                  {
+                                  "imageTitle":"stance_base_of_support_4",
+                                  "description":"Stance / Base Of Support",
+                                  "identifier":"stance_base_of_support_4"
+                                  },
+                                  {
+                                  "imageTitle":"base_of_support_1",
+                                  "description":"Base Of Support",
+                                  "identifier":"base_of_support_1"
+                                  },
+                                  {
+                                  "imageTitle":"base_of_support_2",
+                                  "description":"Base Of Support",
+                                  "identifier":"base_of_support_2"
+                                  },
+                                  {
+                                  "imageTitle":"walk_1",
+                                  "description":"Walk",
+                                  "identifier":"walk_1"
+                                  },
+                                  {
+                                  "imageTitle":"walk_2",
+                                  "description":"Walk",
+                                  "identifier":"walk_2"
+                                  },
+                                  {
+                                  "imageTitle":"walk_3",
+                                  "description":"Walk",
+                                  "identifier":"walk_3"
+                                  },
+                                  {
+                                  "imageTitle":"jump_1",
+                                  "description":"Jump",
+                                  "identifier":"jump_1"
+                                  },
+                                  {
+                                  "imageTitle":"jump_2",
+                                  "description":"Jump",
+                                  "identifier":"jump_2"
+                                  },
+                                  {
+                                  "imageTitle":"jump_3",
+                                  "description":"Jump",
+                                  "identifier":"jump_3"
+                                  },
+                                  {
+                                  "imageTitle":"jump_4",
+                                  "description":"Jump",
+                                  "identifier":"jump_4"
+                                  },
+                                  {
+                                  "imageTitle":"jump_5",
+                                  "description":"Jump",
+                                  "identifier":"jump_5"
+                                  },
+                                  {
+                                  "imageTitle":"jump_6",
+                                  "description":"Jump",
+                                  "identifier":"jump_6"
+                                  },
+                                  {
+                                  "imageTitle":"kick_1",
+                                  "description":"Kick",
+                                  "identifier":"kick_1"
+                                  },
+                                  {
+                                  "imageTitle":"kick_2",
+                                  "description":"Kick",
+                                  "identifier":"kick_2"
+                                  },
+                                  {
+                                  "imageTitle":"throw_lift_1",
+                                  "description":"Throw / Lift",
+                                  "identifier":"throw_lift_1"
+                                  },
+                                  {
+                                  "imageTitle":"throw_lift_2",
+                                  "description":"Throw / Lift",
+                                  "identifier":"throw_lift_2"
+                                  },
+                                  {
+                                  "imageTitle":"throw_lift_3",
+                                  "description":"Throw / Lift",
+                                  "identifier":"throw_lift_3"
+                                  },
+                                  {
+                                  "imageTitle":"throw_lift_4",
+                                  "description":"Throw / Lift",
+                                  "identifier":"throw_lift_4"
+                                  },
+                                  {
+                                  "imageTitle":"turn",
+                                  "description":"Turn",
+                                  "identifier":"turn"
+                                  }
+                                  ]
+                        },
+                        {
+                        "identifier"   : "results",
+                        "type"         : "instruction",
+                        "title"        : "Thank you for completing the task!",
+                        "text"         : ""
+                        }
+                        ]
+    },
+    "resultTransforms": [
+                         {
+                         "transform": "YADLSpotRaw",
+                         "inputMapping": [
+                                          {"parameter":"result", "stepIdentifier":"yadl_spot"},
+                                          {"parameter": "schemaID", "constant":{
+                                          "namespace": "Cornell",
+                                          "name": "yadl-spot-assessment-dance",
+                                          "version": "1.0"
+                                          }
+                                          }
+                                          ]
+                         }
+                         ]
+}

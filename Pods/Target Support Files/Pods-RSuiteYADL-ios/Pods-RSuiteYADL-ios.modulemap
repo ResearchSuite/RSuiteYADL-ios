@@ -1,0 +1,6 @@
+framework module Pods_RSuiteYADL_ios {
+  umbrella header "Pods-RSuiteYADL-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

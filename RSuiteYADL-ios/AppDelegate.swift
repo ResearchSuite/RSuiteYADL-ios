@@ -1,93 +1,231 @@
 //
 //  AppDelegate.swift
-//  RSuiteYADL-ios
 //
-//  Created by Christina Tsangouri on 6/13/17.
-//  Copyright © 2017 Christina Tsangouri. All rights reserved.
+//  Created by James Kizer on 5/24/17.
+//  Copyright © 2017 ResearchSuite. All rights reserved.
 //
 
 import UIKit
-import CoreData
+import OhmageOMHSDK
+import ResearchSuiteTaskBuilder
+import ResearchSuiteResultsProcessor
+import ResearchSuiteAppFramework
+import Gloss
+import sdlrkx
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var store: YADLStore!
+    var ohmageManager: OhmageOMHManager!
+    var taskBuilder: RSTBTaskBuilder!
+    var resultsProcessor: RSRPResultsProcessor!
+    var shouldDoNotification: Bool! = false
 
-
+    func initializeOhmage(credentialsStore: OhmageOMHSDKCredentialStore) -> OhmageOMHManager {
+        
+        //load OMH client application credentials from OMHClient.plist
+        guard let file = Bundle.main.path(forResource: "OMHClient", ofType: "plist") else {
+                fatalError("Could not initialze OhmageManager")
+        }
+        
+        
+        let omhClientDetails = NSDictionary(contentsOfFile: file)
+        
+        guard let baseURL = omhClientDetails?["OMHBaseURL"] as? String,
+            let clientID = omhClientDetails?["OMHClientID"] as? String,
+            let clientSecret = omhClientDetails?["OMHClientSecret"] as? String else {
+                fatalError("Could not initialze OhmageManager")
+        }
+        
+        if let ohmageManager = OhmageOMHManager(baseURL: baseURL,
+                                                clientID: clientID,
+                                                clientSecret: clientSecret,
+                                                queueStorageDirectory: "ohmageSDK",
+                                                store: credentialsStore) {
+            return ohmageManager
+        }
+        else {
+            fatalError("Could not initialze OhmageManager")
+        }
+        
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.store = YADLStore()
+        self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
+        
+        self.taskBuilder = RSTBTaskBuilder(
+            stateHelper: self.store,
+            elementGeneratorServices: AppDelegate.elementGeneratorServices,
+            stepGeneratorServices: AppDelegate.stepGeneratorServices,
+            answerFormatGeneratorServices: AppDelegate.answerFormatGeneratorServices
+        )
+        
+        self.resultsProcessor = RSRPResultsProcessor(
+            frontEndTransformers: AppDelegate.resultsTransformers,
+            backEnd: ORBEManager(ohmageManager: self.ohmageManager)
+        )
+        
+        self.showViewController(animated: false)
+        
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
-    }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "RSuiteYADL_ios")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+    
+    open func signOut() {
+        
+        self.ohmageManager.signOut { (error) in
+            
+            self.store.reset()
+            DispatchQueue.main.async {
+                self.showViewController(animated: true)
             }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+            
         }
     }
+    
+    open func showViewController(animated: Bool) {
+        //if not signed in, go to sign in screen
+        if !self.ohmageManager.isSignedIn {
+            
+            let storyboard = UIStoryboard(name: "YADLOnboarding", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+            
+        }
+        else {
+
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let vc = storyboard.instantiateInitialViewController()
+                self.transition(toRootViewController: vc!, animated: animated)
+            
+        }
+    }
+    
+    open class var stepGeneratorServices: [RSTBStepGenerator] {
+        return [
+            CTFOhmageLoginStepGenerator(),
+            YADLFullStepGenerator(),
+            YADLSpotStepGenerator(),
+            CTFDelayDiscountingStepGenerator(),
+            CTFBARTStepGenerator(),
+            RSTBInstructionStepGenerator(),
+            RSTBTextFieldStepGenerator(),
+            RSTBIntegerStepGenerator(),
+            RSTBDecimalStepGenerator(),
+            RSTBTimePickerStepGenerator(),
+            RSTBFormStepGenerator(),
+            RSTBDatePickerStepGenerator(),
+            RSTBSingleChoiceStepGenerator(),
+            RSTBMultipleChoiceStepGenerator(),
+            RSTBBooleanStepGenerator(),
+            RSTBPasscodeStepGenerator(),
+            RSTBScaleStepGenerator()
+        ]
+    }
+    
+    open class var answerFormatGeneratorServices:  [RSTBAnswerFormatGenerator] {
+        return [
+            RSTBTextFieldStepGenerator(),
+            RSTBSingleChoiceStepGenerator(),
+            RSTBIntegerStepGenerator(),
+            RSTBDecimalStepGenerator(),
+            RSTBTimePickerStepGenerator(),
+            RSTBDatePickerStepGenerator(),
+            RSTBScaleStepGenerator()
+        ]
+    }
+    
+    open class var elementGeneratorServices: [RSTBElementGenerator] {
+        return [
+            RSTBElementListGenerator(),
+            RSTBElementFileGenerator(),
+            RSTBElementSelectorGenerator()
+        ]
+    }
+    
+    open class var resultsTransformers: [RSRPFrontEndTransformer.Type] {
+        return [
+            YADLFullRaw.self,
+            YADLSpotRaw.self,
+            CTFBARTSummaryResultsTransformer.self,
+            CTFDelayDiscountingRawResultsTransformer.self
+        ]
+    }
+    
+    
+    /**
+     Convenience method for transitioning to the given view controller as the main window
+     rootViewController.
+     */
+    open func transition(toRootViewController: UIViewController, animated: Bool, completion: ((Bool) -> Swift.Void)? = nil) {
+        guard let window = self.window else { return }
+        if (animated) {
+            let snapshot:UIView = (self.window?.snapshotView(afterScreenUpdates: true))!
+            toRootViewController.view.addSubview(snapshot);
+            
+            self.window?.rootViewController = toRootViewController;
+            
+            UIView.animate(withDuration: 0.3, animations: {() in
+                snapshot.layer.opacity = 0;
+            }, completion: {
+                (value: Bool) in
+                snapshot.removeFromSuperview()
+                completion?(value)
+            })
+        }
+        else {
+            window.rootViewController = toRootViewController
+            completion?(true)
+        }
+    }
+    
+    
+    //utilities
+    static func loadSchedule(filename: String) -> RSAFSchedule? {
+        guard let json = AppDelegate.getJson(forFilename: filename) as? JSON else {
+            return nil
+        }
+        
+        return RSAFSchedule(json: json)
+    }
+    
+    static func loadScheduleItem(filename: String) -> RSAFScheduleItem? {
+        guard let json = AppDelegate.getJson(forFilename: filename) as? JSON else {
+            return nil
+        }
+        
+        return RSAFScheduleItem(json: json)
+    }
+    
+    static func loadActivity(filename: String) -> JSON? {
+        return AppDelegate.getJson(forFilename: filename) as? JSON
+    }
+    
+    static func getJson(forFilename filename: String, inBundle bundle: Bundle = Bundle.main) -> JsonElement? {
+        
+        guard let filePath = bundle.path(forResource: filename, ofType: "json")
+            else {
+                assertionFailure("unable to locate file \(filename)")
+                return nil
+        }
+        
+        guard let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath))
+            else {
+                assertionFailure("Unable to create NSData with content of file \(filePath)")
+                return nil
+        }
+        
+        let json = try! JSONSerialization.jsonObject(with: fileContent, options: JSONSerialization.ReadingOptions.mutableContainers)
+        
+        return json as JsonElement?
+    }
+    
+    
+    
 
 }
 
