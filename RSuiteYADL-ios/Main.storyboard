@@ -6,14 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--YADL-->
         <scene sceneID="Nop-w5-yEb">
             <objects>
-                <viewController storyboardIdentifier="Main2" id="o60-Ii-SeK" customClass="YADLViewController" customModule="RSuiteDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main2" id="o60-Ii-SeK" customClass="YADLViewController" customModule="RSuiteYADL_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8fi-Oy-cPg"/>
                         <viewControllerLayoutGuide type="bottom" id="uOY-yg-Yll"/>
@@ -50,7 +49,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Settings" id="IXj-xu-eaN">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="Nez-x3-Fil" kind="showDetail" id="Vp4-nv-KuB"/>
+                                                <segue destination="Nez-x3-Fil" kind="showDetail" id="Xix-K3-o7Y"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -83,7 +82,7 @@
         <!--Settings View Controller-->
         <scene sceneID="RJR-M9-kfa">
             <objects>
-                <viewController id="Nez-x3-Fil" customClass="YADLSettingsViewController" customModule="RSuiteDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nez-x3-Fil" customClass="YADLSettingsViewController" customModule="RSuiteYADL_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s4m-h2-GcQ"/>
                         <viewControllerLayoutGuide type="bottom" id="DqE-q8-Kgd"/>
@@ -92,44 +91,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGh-ZN-nOJ">
-                                <rect key="frame" x="18" y="98" width="174" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="Hbc-zS-Emc"/>
-                                    <constraint firstAttribute="height" constant="30" id="h2S-qc-Otn"/>
-                                </constraints>
-                                <state key="normal" title="Take the Full Assessment"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E74-uu-RBD">
+                                <rect key="frame" x="0.0" y="72" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bFe-x5-TPb">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFe-x5-TPb" id="1Va-dx-OlI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jqV-WO-9OM">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jqV-WO-9OM" id="wgL-B7-O72">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pr2-On-lqe">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pr2-On-lqe" id="t4t-pX-QRU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                                 <connections>
-                                    <action selector="fullAssessmentAction:" destination="Nez-x3-Fil" eventType="touchUpInside" id="h44-gq-4H7"/>
+                                    <outlet property="dataSource" destination="Nez-x3-Fil" id="Hp4-5u-EDW"/>
+                                    <outlet property="delegate" destination="Nez-x3-Fil" id="dNz-1I-1aL"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJW-Uk-tP9">
-                                <rect key="frame" x="18" y="126" width="182" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="VWz-Gx-zQk"/>
-                                    <constraint firstAttribute="width" constant="182" id="buP-sL-77m"/>
-                                </constraints>
-                                <state key="normal" title="Take the Spot Assessment"/>
-                                <connections>
-                                    <action selector="spotAssessmentAction:" destination="Nez-x3-Fil" eventType="touchUpInside" id="H8P-xU-FfD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-jp-GwK">
-                                <rect key="frame" x="18" y="179" width="144" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="HMD-yG-ACA"/>
-                                    <constraint firstAttribute="height" constant="30" id="kHw-Na-rra"/>
-                                </constraints>
-                                <state key="normal" title="Set Notification Time"/>
-                                <connections>
-                                    <action selector="notificationAction:" destination="Nez-x3-Fil" eventType="touchUpInside" id="pCw-XR-blN"/>
-                                </connections>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccU-Tl-zyn">
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD2-U0-zUw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Ile-ee-R10"/>
-                                    <constraint firstAttribute="height" constant="44" id="rkR-ik-emY"/>
+                                    <constraint firstAttribute="width" constant="375" id="KfD-x9-Z9x"/>
+                                    <constraint firstAttribute="height" constant="44" id="Olk-Nf-qyr"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.2176931201" green="0.6016751615" blue="0.87471367799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,13 +139,13 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="YADL" id="lID-ue-grm">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="j5l-9W-543">
+                                    <navigationItem title="YADL" id="Y7B-8t-WmF">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="AHt-62-cD4">
                                             <connections>
-                                                <segue destination="o60-Ii-SeK" kind="showDetail" id="SFH-h9-1Zk"/>
+                                                <segue destination="o60-Ii-SeK" kind="showDetail" id="ZgQ-y8-MRr"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" id="swS-6I-yaT"/>
+                                        <barButtonItem key="rightBarButtonItem" id="Kg4-RD-2b5"/>
                                     </navigationItem>
                                 </items>
                                 <userDefinedRuntimeAttributes>
@@ -152,40 +154,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFJ-cu-hxB">
-                                <rect key="frame" x="18" y="332" width="57" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="ZyD-Np-Nuq"/>
-                                    <constraint firstAttribute="height" constant="30" id="wcZ-Hu-20t"/>
-                                </constraints>
-                                <state key="normal" title="Sign out">
-                                    <color key="titleColor" red="0.2176931201" green="0.6016751615" blue="0.87471367799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signoutAction:" destination="Nez-x3-Fil" eventType="touchUpInside" id="p3z-v2-A5k"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ccU-Tl-zyn" firstAttribute="top" secondItem="s4m-h2-GcQ" secondAttribute="bottom" id="85G-CV-kKN"/>
-                            <constraint firstItem="UGh-ZN-nOJ" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leading" constant="18" id="9YG-uy-0d8"/>
-                            <constraint firstItem="UGh-ZN-nOJ" firstAttribute="top" secondItem="ccU-Tl-zyn" secondAttribute="bottom" constant="34" id="AH3-mU-ELa"/>
-                            <constraint firstItem="ccU-Tl-zyn" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leading" id="Pl3-mT-1AH"/>
-                            <constraint firstItem="FFJ-cu-hxB" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leadingMargin" constant="2" id="VYf-p3-7SX"/>
-                            <constraint firstItem="Y2k-jp-GwK" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leadingMargin" constant="2" id="VoP-te-Kxf"/>
-                            <constraint firstAttribute="trailing" secondItem="ccU-Tl-zyn" secondAttribute="trailing" id="fI4-RG-BpA"/>
-                            <constraint firstItem="ZJW-Uk-tP9" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leadingMargin" constant="2" id="ilj-RL-I4P"/>
-                            <constraint firstItem="Y2k-jp-GwK" firstAttribute="top" secondItem="ZJW-Uk-tP9" secondAttribute="bottom" constant="23" id="pfV-hZ-yoW"/>
-                            <constraint firstItem="ZJW-Uk-tP9" firstAttribute="top" secondItem="ccU-Tl-zyn" secondAttribute="bottom" constant="62" id="rPf-R8-ks3"/>
-                            <constraint firstItem="FFJ-cu-hxB" firstAttribute="top" secondItem="Y2k-jp-GwK" secondAttribute="bottom" constant="123" id="tSf-t3-IGt"/>
+                            <constraint firstItem="vD2-U0-zUw" firstAttribute="top" secondItem="s4m-h2-GcQ" secondAttribute="bottom" id="VQH-2q-QA5"/>
+                            <constraint firstItem="vD2-U0-zUw" firstAttribute="leading" secondItem="Ktn-WB-jFa" secondAttribute="leading" id="ear-Lv-d2h"/>
+                            <constraint firstAttribute="trailing" secondItem="vD2-U0-zUw" secondAttribute="trailing" id="kKR-EX-RTV"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fullAssessmentButton" destination="UGh-ZN-nOJ" id="KuN-D6-G22"/>
-                        <outlet property="notificationButton" destination="Y2k-jp-GwK" id="qaY-t4-TOO"/>
-                        <outlet property="signOutButton" destination="FFJ-cu-hxB" id="uVe-BH-VfG"/>
-                        <outlet property="spotAssessmentButton" destination="ZJW-Uk-tP9" id="GOp-hM-jG3"/>
+                        <outlet property="tableView" destination="E74-uu-RBD" id="trP-ha-urQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mx3-qX-x0H" userLabel="First Responder" sceneMemberID="firstResponder"/>

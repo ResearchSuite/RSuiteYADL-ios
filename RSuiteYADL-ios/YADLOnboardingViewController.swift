@@ -13,7 +13,6 @@ import ResearchSuiteAppFramework
 
 class YADLOnboardingViewController: UIViewController {
     
-   // @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
     let kActivityIdentifiers = "activity_identifiers"
     
     var store: YADLStore!
@@ -78,8 +77,6 @@ class YADLOnboardingViewController: UIViewController {
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
                 if(item.identifier == "yadl_full"){
-                    
-                    NSLog("at yadl full")
                     
                     // save date that full assessment was completed
                     
@@ -147,7 +144,6 @@ class YADLOnboardingViewController: UIViewController {
                 if(item.identifier == "yadl_spot"){
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let vc = storyboard.instantiateInitialViewController()
-                    //appDelegate.showViewController(animated: true)
                     appDelegate.transition(toRootViewController: vc!, animated: true)
                 }
                 

@@ -17,12 +17,12 @@
 		CF5976F11EF0340F008EF3B6 /* YADLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5976EF1EF0340F008EF3B6 /* YADLViewController.swift */; };
 		CF5976F41EF035A5008EF3B6 /* YADLOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F31EF035A5008EF3B6 /* YADLOnboarding.storyboard */; };
 		CF5976F61EF035AC008EF3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F51EF035AC008EF3B6 /* Main.storyboard */; };
-		CF5976F91EF035DE008EF3B6 /* OMHClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5976F81EF035DE008EF3B6 /* OMHClient.plist */; };
 		CF5976FB1EF035E5008EF3B6 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */; };
 		CF5976FF1EF035F7008EF3B6 /* YADLSpot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5976FE1EF035F7008EF3B6 /* YADLSpot.json */; };
 		CF5977011EF03602008EF3B6 /* signIn.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977001EF03602008EF3B6 /* signIn.json */; };
 		CF5977031EF0360E008EF3B6 /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977021EF0360E008EF3B6 /* notification.json */; };
 		CF5977051EF03622008EF3B6 /* YADLFull.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5977041EF03622008EF3B6 /* YADLFull.json */; };
+		CF5977091EF04237008EF3B6 /* OMHClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF5977081EF04237008EF3B6 /* OMHClient.plist */; };
 		DDFE55598EB2C193BFA6CA81 /* Pods_RSuiteYADL_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54352A2C3ED3C3977CA48D09 /* Pods_RSuiteYADL_iosTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,12 +55,12 @@
 		CF5976EF1EF0340F008EF3B6 /* YADLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLViewController.swift; sourceTree = "<group>"; };
 		CF5976F31EF035A5008EF3B6 /* YADLOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YADLOnboarding.storyboard; sourceTree = "<group>"; };
 		CF5976F51EF035AC008EF3B6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		CF5976F81EF035DE008EF3B6 /* OMHClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMHClient.plist; sourceTree = "<group>"; };
 		CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YADL.xcassets; sourceTree = "<group>"; };
 		CF5976FE1EF035F7008EF3B6 /* YADLSpot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YADLSpot.json; sourceTree = "<group>"; };
 		CF5977001EF03602008EF3B6 /* signIn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signIn.json; sourceTree = "<group>"; };
 		CF5977021EF0360E008EF3B6 /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
 		CF5977041EF03622008EF3B6 /* YADLFull.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YADLFull.json; sourceTree = "<group>"; };
+		CF5977081EF04237008EF3B6 /* OMHClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMHClient.plist; sourceTree = "<group>"; };
 		D11AECCB63E2BD68B3569748 /* Pods_RSuiteYADL_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSuiteYADL_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,8 +161,8 @@
 		CF5976F71EF035C4008EF3B6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF5977081EF04237008EF3B6 /* OMHClient.plist */,
 				CF5976D41EF0339A008EF3B6 /* Info.plist */,
-				CF5976F81EF035DE008EF3B6 /* OMHClient.plist */,
 				CF5976FA1EF035E5008EF3B6 /* YADL.xcassets */,
 			);
 			name = "Support Files";
@@ -246,6 +246,11 @@
 						DevelopmentTeam = E8AN4S9FD3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					CF5976D81EF0339A008EF3B6 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -280,9 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF5977031EF0360E008EF3B6 /* notification.json in Resources */,
-				CF5976F91EF035DE008EF3B6 /* OMHClient.plist in Resources */,
 				CF5976F41EF035A5008EF3B6 /* YADLOnboarding.storyboard in Resources */,
 				CF5976FB1EF035E5008EF3B6 /* YADL.xcassets in Resources */,
+				CF5977091EF04237008EF3B6 /* OMHClient.plist in Resources */,
 				CF5977011EF03602008EF3B6 /* signIn.json in Resources */,
 				CF5976FF1EF035F7008EF3B6 /* YADLSpot.json in Resources */,
 				CF5977051EF03622008EF3B6 /* YADLFull.json in Resources */,

@@ -19,6 +19,7 @@ class YADLViewController: UIViewController{
     let kActivityIdentifiers = "activity_identifiers"
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var fullAssessmentItem: RSAFScheduleItem!
+    var spotAssessmentItem: RSAFScheduleItem!
     
     override func viewDidLoad() {
         
@@ -26,6 +27,14 @@ class YADLViewController: UIViewController{
         
         self.store = YADLStore()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let shouldDoSpot = self.store.get(key: "shouldDoSpot") as! Bool
+        if (shouldDoSpot) {
+            self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
+            self.launchSpotAssessment()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +62,12 @@ class YADLViewController: UIViewController{
             
         }
         
+        
+    }
+    
+    func launchSpotAssessment() {
+        self.spotAssessmentItem = AppDelegate.loadScheduleItem(filename: "YADLSpot")
+        self.launchActivity(forItem: spotAssessmentItem)
     }
     
     func launchFullAssessment () {

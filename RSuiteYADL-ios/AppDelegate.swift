@@ -12,9 +12,10 @@ import ResearchSuiteResultsProcessor
 import ResearchSuiteAppFramework
 import Gloss
 import sdlrkx
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var store: YADLStore!
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var taskBuilder: RSTBTaskBuilder!
     var resultsProcessor: RSRPResultsProcessor!
     var shouldDoNotification: Bool! = false
+    var center: UNUserNotificationCenter!
 
     func initializeOhmage(credentialsStore: OhmageOMHSDKCredentialStore) -> OhmageOMHManager {
         
@@ -52,6 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+  
+//    
+//     open func application(_ application: UIApplication, didReceive: UNNotification) {
+//        switch application.applicationState {
+//        case .active:
+//            print("do stuff in case App is active")
+//        case .background:
+//            print("do stuff in case App is in background")
+//        case .inactive:
+//            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//            let vc = storyboard.instantiateInitialViewController()
+//            self.transition(toRootViewController: vc!, animated: true)
+//        }
+//    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -72,7 +89,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.showViewController(animated: false)
         
+        if #available(iOS 10.0, *) {
+            self.center = UNUserNotificationCenter.current()
+            self.center.delegate = self
+            self.center.requestAuthorization(options: [UNAuthorizationOptions.sound ], completionHandler: { (granted, error) in
+                if error == nil{
+                   // UIApplication.shared.registerForRemoteNotifications()
+                }
+            })
+        } else {
+            let settings  = UIUserNotificationSettings(types: [UIUserNotificationType.alert , UIUserNotificationType.badge , UIUserNotificationType.sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            
+        }
+        
         return true
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Handle code here.
+        completionHandler([UNNotificationPresentationOptions.sound , UNNotificationPresentationOptions.alert , UNNotificationPresentationOptions.badge])
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        self.store.set(value: true as NSSecureCoding, key: "shouldDoSpot")
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController()
+        self.transition(toRootViewController: vc!, animated: true)
+        
+        
+        completionHandler()
     }
     
     open func signOut() {
