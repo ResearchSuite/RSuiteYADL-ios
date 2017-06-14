@@ -60,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         self.store = YADLStore()
         self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
+        self.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
+
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,
@@ -100,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        NSLog("this gets called")
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
         NSLog(String(describing: self.store.valueInState(forKey: "shouldDoSpot")))
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)

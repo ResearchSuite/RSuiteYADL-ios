@@ -26,7 +26,6 @@ class YADLViewController: UIViewController{
         super.viewDidLoad()
         
         self.store = YADLStore()
-        self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
         
     }
     
