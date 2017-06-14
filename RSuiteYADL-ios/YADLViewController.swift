@@ -26,15 +26,19 @@ class YADLViewController: UIViewController{
         super.viewDidLoad()
         
         self.store = YADLStore()
+        self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let shouldDoSpot = self.store.get(key: "shouldDoSpot") as! Bool
+       // NSLog(String(describing: shouldDoSpot))
         if (shouldDoSpot) {
             self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
             self.launchSpotAssessment()
         }
+        
+        self.shouldDoFullAssessment()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,13 +58,18 @@ class YADLViewController: UIViewController{
         let components = NSDateComponents()
         components.day = 28
         
-        let futureDate = calendar.date(byAdding: components as DateComponents, to: fullDate as! Date)
         
-        if futureDate! <= currentDate {
+        if(fullDate != nil){
+            let futureDate = calendar.date(byAdding: components as DateComponents, to: fullDate as! Date)
             
-            self.launchFullAssessment()
-            
+            if futureDate! <= currentDate {
+                
+                self.launchFullAssessment()
+                
+            }
+
         }
+        
         
         
     }

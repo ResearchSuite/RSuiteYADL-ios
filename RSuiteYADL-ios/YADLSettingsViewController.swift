@@ -68,20 +68,13 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         self.store = YADLStore()
+        self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-//        self.center = UNUserNotificationCenter.current()
-//
-//        center.requestAuthorization(options: options) {
-//            (granted, error) in
-//            if !granted {
-//                print("Something went wrong")
-//            }
-//        }
+      //  let options: UNAuthorizationOptions = [.alert, .sound, .badge]
      
         // Do any additional setup after loading the view.
     }

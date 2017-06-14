@@ -21,20 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="yadl_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TpN-aG-Unh">
-                                <rect key="frame" x="112" y="281" width="150" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yadl_icon" translatesAutoresizingMaskIntoConstraints="NO" id="TpN-aG-Unh">
+                                <rect key="frame" x="112" y="258.5" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Up8-U6-n8F"/>
                                     <constraint firstAttribute="height" constant="150" id="wdB-pk-yQc"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="We'll let you know when it's time to take your next assessment" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NCK-ji-Ia6">
-                                <rect key="frame" x="100" y="188" width="174" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" backIndicatorTransitionMaskImage="navigationBar:2uz-TQ-40W:backIndicatorTransitionMaskImage" translatesAutoresizingMaskIntoConstraints="NO" id="2uz-TQ-40W">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
@@ -60,12 +53,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="We'll let you know when it's time to take your next assessment" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCK-ji-Ia6">
+                                <rect key="frame" x="100" y="120" width="174" height="62.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="Hef-Iy-9oW"/>
+                                    <constraint firstAttribute="width" constant="174" id="aLc-20-VGv"/>
+                                </constraints>
+                                <color key="textColor" red="0.2176931201" green="0.6016751615" blue="0.87471367799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NCK-ji-Ia6" firstAttribute="top" secondItem="2uz-TQ-40W" secondAttribute="bottom" constant="56" id="Ij9-Wd-8GS"/>
                             <constraint firstItem="TpN-aG-Unh" firstAttribute="centerX" secondItem="N8G-of-AH9" secondAttribute="centerX" id="MJo-xP-4jl"/>
                             <constraint firstItem="2uz-TQ-40W" firstAttribute="leading" secondItem="N8G-of-AH9" secondAttribute="leading" id="N4d-zH-0A1"/>
                             <constraint firstItem="TpN-aG-Unh" firstAttribute="centerY" secondItem="N8G-of-AH9" secondAttribute="centerY" id="Nsi-1L-LUO"/>
+                            <constraint firstItem="NCK-ji-Ia6" firstAttribute="centerX" secondItem="N8G-of-AH9" secondAttribute="centerX" id="aXz-Za-MjY"/>
                             <constraint firstAttribute="trailing" secondItem="2uz-TQ-40W" secondAttribute="trailing" id="oWS-Qr-I21"/>
                             <constraint firstItem="2uz-TQ-40W" firstAttribute="top" secondItem="8fi-Oy-cPg" secondAttribute="bottom" id="rgc-ui-IOJ"/>
                         </constraints>

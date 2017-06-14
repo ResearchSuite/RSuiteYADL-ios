@@ -10,6 +10,7 @@ import ResearchKit
 import ResearchSuiteTaskBuilder
 import Gloss
 import ResearchSuiteAppFramework
+import UserNotifications
 
 class YADLOnboardingViewController: UIViewController {
     
@@ -23,6 +24,19 @@ class YADLOnboardingViewController: UIViewController {
     var signInItem: RSAFScheduleItem!
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        let color = UIColor.init(colorLiteralRed: 0.44, green: 0.66, blue: 0.86, alpha: 1.0)
+        loginButton.layer.borderWidth = 1.0
+        loginButton.layer.borderColor = color.cgColor
+        loginButton.layer.cornerRadius = 5
+        loginButton.clipsToBounds = true
+
+    }
+
     
     @IBAction func signInTapped(_ sender: Any) {
         
@@ -76,13 +90,23 @@ class YADLOnboardingViewController: UIViewController {
                 let taskResult = taskViewController.result
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
+                if(item.identifier == "notification_date"){
+                    
+                    let result = taskResult.stepResult(forStepIdentifier: "notification_time_picker")
+                    let timeAnswer = result?.firstResult as? ORKTimeOfDayQuestionResult
+                    
+                    let resultAnswer = timeAnswer?.dateComponentsAnswer
+                    self?.setNotification(resultAnswer: resultAnswer!)
+                    
+                }
+                
                 if(item.identifier == "yadl_full"){
                     
                     // save date that full assessment was completed
                     
                     let date = Date()
                                     
-                    self?.store.setValueInState(value: date as NSSecureCoding, forKey: "fullDate")
+                    self?.store.setValueInState(value: date as NSSecureCoding, forKey: "dateFull")
                 
                     
                     // save for spot assessment
@@ -163,6 +187,55 @@ class YADLOnboardingViewController: UIViewController {
         self.present(tvc, animated: true, completion: nil)
         
     }
+    
+    func setNotification(resultAnswer: DateComponents) {
+        
+        var userCalendar = Calendar.current
+        userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
+        let someDateTime = userCalendar.date(from: resultAnswer)
+        var dateToday = Date()
+        var fireDate = NSDateComponents()
+        let day = userCalendar.component(.day, from: dateToday)
+        let month = userCalendar.component(.month, from: dateToday)
+        let year = userCalendar.component(.year, from: dateToday)
+        let hour = resultAnswer.hour
+        let minutes = resultAnswer.minute
+        
+        NSLog(String(describing: hour))
+        NSLog(String(describing: minutes))
+        
+        fireDate.hour = hour!
+        fireDate.minute = minutes!
+        fireDate.day = day
+        fireDate.month = month
+        fireDate.year = year
+        
+        let dateFire = userCalendar.date(from:fireDate as DateComponents)
+        
+        NSLog(String(describing: dateFire))
+        
+        let content = UNMutableNotificationContent()
+        content.title = "YADL"
+        content.body = "It'm time to complete your YADL Spot Assessment"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
+                                                    repeats: false)
+        
+        let identifier = "UYLLocalNotification"
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.center.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                // Something went wrong
+            }
+        })
+        
+        
+    }
+
 }
     
 

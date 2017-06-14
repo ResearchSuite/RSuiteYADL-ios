@@ -12,7 +12,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="gGV-NI-v0K">
             <objects>
-                <viewController storyboardIdentifier="YADLOnboarding" id="tVU-9K-dZ6" customClass="YADLOnboardingViewController" customModule="RSuiteDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YADLOnboarding" id="tVU-9K-dZ6" customClass="YADLOnboardingViewController" customModule="RSuiteYADL_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X2I-J1-8k3"/>
                         <viewControllerLayoutGuide type="bottom" id="71Y-rG-TGx"/>
@@ -28,16 +28,23 @@
                                     <constraint firstAttribute="height" constant="150" id="lCJ-eA-OrG"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome to YADL" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yl6-XN-p2F">
-                                <rect key="frame" x="124" y="157" width="138" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hi! 👋👋 Welcome to YADL " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yl6-XN-p2F">
+                                <rect key="frame" x="113" y="134" width="150" height="59"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="jQd-zD-Cqf"/>
+                                    <constraint firstAttribute="width" constant="150" id="mDg-p6-T3c"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utW-25-lwp">
-                                <rect key="frame" x="164" y="416" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utW-25-lwp">
+                                <rect key="frame" x="134" y="473" width="106" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="PBk-wa-bsU"/>
+                                    <constraint firstAttribute="height" constant="43" id="pzr-eg-c9F"/>
+                                </constraints>
                                 <state key="normal" title="Log in"/>
                                 <connections>
                                     <action selector="signInTapped:" destination="tVU-9K-dZ6" eventType="touchUpInside" id="EEM-3t-mXn"/>
@@ -46,7 +53,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PjN-e9-5Dp" firstAttribute="top" secondItem="yl6-XN-p2F" secondAttribute="bottom" constant="65.5" id="aMm-6J-gdM"/>
+                            <constraint firstItem="utW-25-lwp" firstAttribute="top" secondItem="PjN-e9-5Dp" secondAttribute="bottom" constant="64.5" id="md5-3Q-Kbp"/>
                             <constraint firstItem="PjN-e9-5Dp" firstAttribute="centerY" secondItem="FMa-R9-h4t" secondAttribute="centerY" id="oPa-wk-RxQ"/>
+                            <constraint firstItem="utW-25-lwp" firstAttribute="centerX" secondItem="FMa-R9-h4t" secondAttribute="centerX" id="qYv-53-bvY"/>
+                            <constraint firstItem="yl6-XN-p2F" firstAttribute="centerX" secondItem="FMa-R9-h4t" secondAttribute="centerX" id="rAL-tA-xTD"/>
                             <constraint firstItem="PjN-e9-5Dp" firstAttribute="centerX" secondItem="FMa-R9-h4t" secondAttribute="centerX" id="re4-VU-On9"/>
                         </constraints>
                     </view>
@@ -56,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhc-3a-qTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-345" y="252"/>
+            <point key="canvasLocation" x="-346.39999999999998" y="251.42428785607197"/>
         </scene>
     </scenes>
     <resources>

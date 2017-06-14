@@ -53,21 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
     }
-    
-  
-//    
-//     open func application(_ application: UIApplication, didReceive: UNNotification) {
-//        switch application.applicationState {
-//        case .active:
-//            print("do stuff in case App is active")
-//        case .background:
-//            print("do stuff in case App is in background")
-//        case .inactive:
-//            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//            let vc = storyboard.instantiateInitialViewController()
-//            self.transition(toRootViewController: vc!, animated: true)
-//        }
-//    }
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -114,8 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        self.store.set(value: true as NSSecureCoding, key: "shouldDoSpot")
+        self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
+        NSLog(String(describing: self.store.valueInState(forKey: "shouldDoSpot")))
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc = storyboard.instantiateInitialViewController()
         self.transition(toRootViewController: vc!, animated: true)

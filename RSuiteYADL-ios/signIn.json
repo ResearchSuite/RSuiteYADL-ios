@@ -3,12 +3,6 @@
   "identifier": "signIn",
   "elements": [
     {
-      "identifier": "welcome_instructions",
-      "type": "instruction",
-      "title": "Hi! 👋👋",
-      "text": "Welcome to the YADL"
-    },
-    {
       "identifier": "getting_started_instructions",
       "type": "instruction",
       "title": "Getting Started",
