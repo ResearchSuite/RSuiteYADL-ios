@@ -192,7 +192,6 @@ class YADLOnboardingViewController: UIViewController {
         
         var userCalendar = Calendar.current
         userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
-        let someDateTime = userCalendar.date(from: resultAnswer)
         var dateToday = Date()
         var fireDate = NSDateComponents()
         let day = userCalendar.component(.day, from: dateToday)

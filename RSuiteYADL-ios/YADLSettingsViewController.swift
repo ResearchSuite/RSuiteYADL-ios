@@ -193,13 +193,9 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         
         var userCalendar = Calendar.current
         userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
-        let someDateTime = userCalendar.date(from: resultAnswer)
-       // let easternDateTime = userCalendar.date(byAdding: .hour, value: -5, to: someDateTime!)
         
-//        NSLog(String(describing:easternDateTime!))
-        
-        var dateToday = Date()
-        var fireDate = NSDateComponents()
+        let dateToday = Date()
+        let fireDate = NSDateComponents()
         let day = userCalendar.component(.day, from: dateToday)
         let month = userCalendar.component(.month, from: dateToday)
         let year = userCalendar.component(.year, from: dateToday)

@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var ohmageManager: OhmageOMHManager!
     var taskBuilder: RSTBTaskBuilder!
     var resultsProcessor: RSRPResultsProcessor!
-    var shouldDoNotification: Bool! = false
     var center: UNUserNotificationCenter!
 
     func initializeOhmage(credentialsStore: OhmageOMHSDKCredentialStore) -> OhmageOMHManager {
@@ -136,9 +135,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         else {
 
-                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let vc = storyboard.instantiateInitialViewController()
-                self.transition(toRootViewController: vc!, animated: animated)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
             
         }
     }
