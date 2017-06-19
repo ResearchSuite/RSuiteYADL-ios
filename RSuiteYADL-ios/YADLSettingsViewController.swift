@@ -17,8 +17,9 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     let kActivityIdentifiers = "activity_identifiers"
     
-    var center: UNUserNotificationCenter!
+ //   var center: UNUserNotificationCenter!
     var store: YADLStore!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
@@ -27,23 +28,119 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet
     var tableView: UITableView!
     
+    
+    func hourConversion (hour: String, minute: String) -> [String] {
+    
+        var newHour: String!
+        var newMinute: String!
+        var am_pm: String!
+        
+        var minuteInt: Int = Int(minute)!
+        if minuteInt < 10 {
+            newMinute = "0" + minute
+        }
+        else {
+            newMinute = minute
+        }
+        
+        switch hour{
+        case "00":
+            newHour = "12"
+            am_pm = "am"
+        case "12":
+            newHour = "12"
+            am_pm = "pm"
+        case "13":
+            newHour = "1"
+            am_pm = "pm"
+        case "14":
+            newHour = "2"
+            am_pm = "pm"
+        case "15":
+            newHour = "3"
+            am_pm = "pm"
+        case "16":
+            newHour = "4"
+            am_pm = "pm"
+        case "17":
+            newHour = "5"
+            am_pm = "pm"
+        case "18":
+            newHour = "6"
+            am_pm = "pm"
+        case "19":
+            newHour = "7"
+            am_pm = "pm"
+        case "20":
+            newHour = "8"
+            am_pm = "pm"
+        case "21":
+            newHour = "9"
+            am_pm = "pm"
+        case "22":
+            newHour = "10"
+            am_pm = "pm"
+        case "23":
+            newHour = "11"
+            am_pm = "pm"
+        default:
+            newHour = hour
+            am_pm = "am"
+        }
+        
+    
+        return [newHour,am_pm,newMinute]
+    
+    }
+
+    
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        var deselectedCell = tableView.cellForRow(at: indexPath)!
+        deselectedCell.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")!
         
-        cell.textLabel?.text = self.items[indexPath.row]
+        let notificationHour = self.store.valueInState(forKey: "notificationHour") as! String
+        let notificationMinutes = self.store.valueInState(forKey: "notificationMinutes") as! String
+        
+        var convertedTime:[String]! = []
+        
+        convertedTime = self.hourConversion(hour: notificationHour,minute: notificationMinutes)
+        
+        let notificationString = self.items[2] + ":      " + convertedTime[0] + ":" + convertedTime[2] + " " + convertedTime[1]
+        
+        if(indexPath.row == 2) {
+            cell.textLabel?.text = notificationString
+        }
+        else {
+            
+            cell.textLabel?.text = self.items[indexPath.row]
+        }
+        
         cell.textLabel?.textColor = UIColor.init(colorLiteralRed: 0.44, green: 0.66, blue: 0.86, alpha: 1.0)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+      
+           return 60.0
+        
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog(String(describing: indexPath.row))
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+
         
         if indexPath.row == 0 {
             NSLog("full")
@@ -81,6 +178,10 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     func signOut () {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -127,6 +228,9 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
                     
                     let resultAnswer = timeAnswer?.dateComponentsAnswer
                     self?.setNotification(resultAnswer: resultAnswer!)
+                    DispatchQueue.main.async{
+                        self?.tableView.reloadData()
+                    }
                     
                 }
                 
@@ -194,48 +298,64 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         var userCalendar = Calendar.current
         userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
         
-        let dateToday = Date()
-        let fireDate = NSDateComponents()
-        let day = userCalendar.component(.day, from: dateToday)
-        let month = userCalendar.component(.month, from: dateToday)
-        let year = userCalendar.component(.year, from: dateToday)
+        var fireDate = NSDateComponents()
+        
         let hour = resultAnswer.hour
         let minutes = resultAnswer.minute
         
-        NSLog(String(describing: hour))
-        NSLog(String(describing: minutes))
-        
         fireDate.hour = hour!
         fireDate.minute = minutes!
-        fireDate.day = day
-        fireDate.month = month
-        fireDate.year = year
         
-        let dateFire = userCalendar.date(from:fireDate as DateComponents)
+        self.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "notificationHour")
+        self.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "notificationMinutes")
         
-        NSLog(String(describing: dateFire))
         
-        let content = UNMutableNotificationContent()
-        content.title = "YADL"
-        content.body = "It'm time to complete your YADL Spot Assessment"
-        content.sound = UNNotificationSound.default()
+        if #available(iOS 10.0, *) {
+            let content = UNMutableNotificationContent()
+            content.title = "YADL"
+            content.body = "It'm time to complete your YADL Spot Assessment"
+            content.sound = UNNotificationSound.default()
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
+                                                        repeats: true)
+            
+            let identifier = "UYLLocalNotification"
+            let request = UNNotificationRequest(identifier: identifier,
+                                                content: content, trigger: trigger)
+            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.center.add(request, withCompletionHandler: { (error) in
+                if let error = error {
+                    // Something went wrong
+                }
+            })
+            
+        } else {
+            // Fallback on earlier versions
+            
+            let dateToday = Date()
+            let day = userCalendar.component(.day, from: dateToday)
+            let month = userCalendar.component(.month, from: dateToday)
+            let year = userCalendar.component(.year, from: dateToday)
+            
+            fireDate.day = day
+            fireDate.month = month
+            fireDate.year = year
+            
+            let fireDateLocal = userCalendar.date(from:fireDate as DateComponents)
+            
+            let localNotification = UILocalNotification()
+            localNotification.fireDate = fireDateLocal
+            localNotification.alertBody = "It'm time to complete your YADL Spot Assessment"
+            localNotification.alertTitle = "YADL"
+            localNotification.timeZone = TimeZone(abbreviation: "EDT")!
+            //set the notification
+            UIApplication.shared.scheduleLocalNotification(localNotification)
+        }
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
-                                                    repeats: false)
         
-        let identifier = "UYLLocalNotification"
-        let request = UNNotificationRequest(identifier: identifier,
-                                            content: content, trigger: trigger)
-        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.center.add(request, withCompletionHandler: { (error) in
-            if let error = error {
-                // Something went wrong
-            }
-        })
-        
-
     }
+    
     
 
 }

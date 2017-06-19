@@ -42,7 +42,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Settings" id="IXj-xu-eaN">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="Nez-x3-Fil" kind="showDetail" id="Xix-K3-o7Y"/>
+                                                <segue destination="Nez-x3-Fil" kind="presentation" id="sqv-OB-8ce"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E74-uu-RBD">
-                                <rect key="frame" x="0.0" y="72" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -148,7 +148,7 @@
                                     <navigationItem title="YADL" id="Y7B-8t-WmF">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="AHt-62-cD4">
                                             <connections>
-                                                <segue destination="o60-Ii-SeK" kind="showDetail" id="ZgQ-y8-MRr"/>
+                                                <action selector="backButtonAction:" destination="Nez-x3-Fil" id="FRh-kl-M8H"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" id="Kg4-RD-2b5"/>
@@ -169,6 +169,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="AHt-62-cD4" id="dKP-Z4-Xtd"/>
                         <outlet property="tableView" destination="E74-uu-RBD" id="trP-ha-urQ"/>
                     </connections>
                 </viewController>

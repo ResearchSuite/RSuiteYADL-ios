@@ -542,6 +542,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "RSuiteYADL-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christinatsangouri.RSuiteYADL-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -558,6 +559,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "RSuiteYADL-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christinatsangouri.RSuiteYADL-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";

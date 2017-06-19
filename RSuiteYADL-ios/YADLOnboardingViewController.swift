@@ -28,6 +28,8 @@ class YADLOnboardingViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.store = YADLStore()
+
         
         let color = UIColor.init(colorLiteralRed: 0.44, green: 0.66, blue: 0.86, alpha: 1.0)
         loginButton.layer.borderWidth = 1.0
@@ -74,7 +76,6 @@ class YADLOnboardingViewController: UIViewController {
     
     func launchActivity(forItem item: RSAFScheduleItem) {
         
-        self.store = YADLStore()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
             let steps = appDelegate.taskBuilder.steps(forElement: item.activity as JsonElement) else {
@@ -166,6 +167,7 @@ class YADLOnboardingViewController: UIViewController {
                 }
                 
                 if(item.identifier == "yadl_spot"){
+                    self?.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
                     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let vc = storyboard.instantiateInitialViewController()
                     appDelegate.transition(toRootViewController: vc!, animated: true)
@@ -192,45 +194,60 @@ class YADLOnboardingViewController: UIViewController {
         
         var userCalendar = Calendar.current
         userCalendar.timeZone = TimeZone(abbreviation: "EDT")!
-        var dateToday = Date()
+        
         var fireDate = NSDateComponents()
-        let day = userCalendar.component(.day, from: dateToday)
-        let month = userCalendar.component(.month, from: dateToday)
-        let year = userCalendar.component(.year, from: dateToday)
+       
         let hour = resultAnswer.hour
         let minutes = resultAnswer.minute
         
-        NSLog(String(describing: hour))
-        NSLog(String(describing: minutes))
-        
         fireDate.hour = hour!
         fireDate.minute = minutes!
-        fireDate.day = day
-        fireDate.month = month
-        fireDate.year = year
         
-        let dateFire = userCalendar.date(from:fireDate as DateComponents)
+        self.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "notificationHour")
+        self.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "notificationMinutes")
+
         
-        NSLog(String(describing: dateFire))
-        
-        let content = UNMutableNotificationContent()
-        content.title = "YADL"
-        content.body = "It'm time to complete your YADL Spot Assessment"
-        content.sound = UNNotificationSound.default()
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
-                                                    repeats: false)
-        
-        let identifier = "UYLLocalNotification"
-        let request = UNNotificationRequest(identifier: identifier,
-                                            content: content, trigger: trigger)
-        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.center.add(request, withCompletionHandler: { (error) in
-            if let error = error {
-                // Something went wrong
-            }
-        })
+        if #available(iOS 10.0, *) {
+            let content = UNMutableNotificationContent()
+            content.title = "YADL"
+            content.body = "It'm time to complete your YADL Spot Assessment"
+            content.sound = UNNotificationSound.default()
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate as DateComponents,
+                                                        repeats: true)
+            
+            let identifier = "UYLLocalNotification"
+            let request = UNNotificationRequest(identifier: identifier,
+                                                content: content, trigger: trigger)
+            
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.center.add(request, withCompletionHandler: { (error) in
+                if let error = error {
+                    // Something went wrong
+                }
+            })
+
+        } else {
+            // Fallback on earlier versions
+            
+            let dateToday = Date()
+            let day = userCalendar.component(.day, from: dateToday)
+            let month = userCalendar.component(.month, from: dateToday)
+            let year = userCalendar.component(.year, from: dateToday)
+            
+            fireDate.day = day
+            fireDate.month = month
+            fireDate.year = year
+            
+            let fireDateLocal = userCalendar.date(from:fireDate as DateComponents)
+            
+            let localNotification = UILocalNotification()
+            localNotification.fireDate = fireDateLocal
+            localNotification.alertBody = "It's time"
+            localNotification.timeZone = TimeZone(abbreviation: "EDT")!
+            //set the notification
+            UIApplication.shared.scheduleLocalNotification(localNotification)
+        }
         
         
     }

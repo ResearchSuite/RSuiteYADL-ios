@@ -14,6 +14,7 @@ import Gloss
 import sdlrkx
 import UserNotifications
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
@@ -22,7 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var ohmageManager: OhmageOMHManager!
     var taskBuilder: RSTBTaskBuilder!
     var resultsProcessor: RSRPResultsProcessor!
-    var center: UNUserNotificationCenter!
+
+
+    
+    @available(iOS 10.0, *)
+    var center: UNUserNotificationCenter!{
+        return UNUserNotificationCenter.current()
+    }
+    
+
+    
 
     func initializeOhmage(credentialsStore: OhmageOMHSDKCredentialStore) -> OhmageOMHManager {
         
@@ -52,6 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
     }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
+        NSLog(String(describing: self.store.valueInState(forKey: "shouldDoSpot")))
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController()
+        self.transition(toRootViewController: vc!, animated: true)
+    }
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -59,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         self.store = YADLStore()
         self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
-        self.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
+        self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
 
         
         self.taskBuilder = RSTBTaskBuilder(
@@ -77,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.showViewController(animated: false)
         
         if #available(iOS 10.0, *) {
-            self.center = UNUserNotificationCenter.current()
+           // self.center = UNUserNotificationCenter.current()
             self.center.delegate = self
             self.center.requestAuthorization(options: [UNAuthorizationOptions.sound ], completionHandler: { (granted, error) in
                 if error == nil{
@@ -101,7 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        NSLog("this gets called")
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
         NSLog(String(describing: self.store.valueInState(forKey: "shouldDoSpot")))
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -117,6 +134,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.ohmageManager.signOut { (error) in
             
             self.store.reset()
+            if #available(iOS 10.0, *) {
+                self.center.removeAllDeliveredNotifications()
+                self.center.removeAllPendingNotificationRequests()
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.cancelAllLocalNotifications()
+
+            }
+            
             DispatchQueue.main.async {
                 self.showViewController(animated: true)
             }

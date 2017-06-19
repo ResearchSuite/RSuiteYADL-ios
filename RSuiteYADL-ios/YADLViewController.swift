@@ -32,8 +32,11 @@ class YADLViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         let shouldDoSpot = self.store.get(key: "shouldDoSpot") as! Bool
        // NSLog(String(describing: shouldDoSpot))
+        NSLog("in viewdidappear")
+        NSLog(String(describing:shouldDoSpot))
+        
         if (shouldDoSpot) {
-            self.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
+            
             self.launchSpotAssessment()
         }
         
@@ -99,6 +102,12 @@ class YADLViewController: UIViewController{
             if reason == ORKTaskViewControllerFinishReason.completed {
                 let taskResult = taskViewController.result
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
+                
+                if(item.identifier == "yadl_spot") {
+                    self?.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
+                    NSLog("under task")
+                    NSLog(String(describing:self?.store.get(key: "shouldDoSpot")))
+                }
                 
                 
                 if(item.identifier == "yadl_full"){

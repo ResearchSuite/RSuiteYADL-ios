@@ -14,6 +14,7 @@ open class RSAFTaskViewController: ORKTaskViewController, ORKTaskViewControllerD
     var taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())
     
     let activityUUID: UUID
+
     
     public init(activityUUID: UUID, task: ORKTask, taskFinishedHandler: @escaping ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())) {
         
@@ -30,8 +31,13 @@ open class RSAFTaskViewController: ORKTaskViewController, ORKTaskViewControllerD
     open func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
         self.taskFinishedHandler(taskViewController, reason, error)
+       // taskViewController.dismiss(animated: true, completion: nil)
         
         
+    }
+    
+    public func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+        stepViewController.cancelButtonItem = nil
     }
 
 }
