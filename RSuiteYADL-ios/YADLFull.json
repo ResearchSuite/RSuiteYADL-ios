@@ -36,116 +36,281 @@
             ],
             "imageExtension": "png",
             "items": [
-              {
-                "imageTitle":"stance_base_of_support_1",
-                "description":"Stance / Base Of Support",
-                "identifier":"stance_base_of_support_1"
-              },
-              {
-                "imageTitle":"stance_base_of_support_2",
-                "description":"Stance / Base Of Support",
-                "identifier":"stance_base_of_support_2"
-              },
-              {
-                "imageTitle":"stance_base_of_support_3",
-                "description":"Stance / Base Of Support",
-                "identifier":"stance_base_of_support_3"
-              },
-              {
-                "imageTitle":"stance_base_of_support_4",
-                "description":"Stance / Base Of Support",
-                "identifier":"stance_base_of_support_4"
-              },
-              {
-                "imageTitle":"base_of_support_1",
-                "description":"Base Of Support",
-                "identifier":"base_of_support_1"
-              },
-              {
-                "imageTitle":"base_of_support_2",
-                "description":"Base Of Support",
-                "identifier":"base_of_support_2"
-              },
-              {
-                "imageTitle":"walk_1",
-                "description":"Walk",
-                "identifier":"walk_1"
-              },
-              {
-                "imageTitle":"walk_2",
-                "description":"Walk",
-                "identifier":"walk_2"
-              },
-              {
-                "imageTitle":"walk_3",
-                "description":"Walk",
-                "identifier":"walk_3"
-              },
-              {
-                "imageTitle":"jump_1",
-                "description":"Jump",
-                "identifier":"jump_1"
-              },
-              {
-                "imageTitle":"jump_2",
-                "description":"Jump",
-                "identifier":"jump_2"
-              },
-              {
-                "imageTitle":"jump_3",
-                "description":"Jump",
-                "identifier":"jump_3"
-              },
-              {
-                "imageTitle":"jump_4",
-                "description":"Jump",
-                "identifier":"jump_4"
-              },
-              {
-                "imageTitle":"jump_5",
-                "description":"Jump",
-                "identifier":"jump_5"
-              },
-              {
-                "imageTitle":"jump_6",
-                "description":"Jump",
-                "identifier":"jump_6"
-              },
-              {
-                "imageTitle":"kick_1",
-                "description":"Kick",
-                "identifier":"kick_1"
-              },
-              {
-                "imageTitle":"kick_2",
-                "description":"Kick",
-                "identifier":"kick_2"
-              },
-              {
-                "imageTitle":"throw_lift_1",
-                "description":"Throw / Lift",
-                "identifier":"throw_lift_1"
-              },
-              {
-                "imageTitle":"throw_lift_2",
-                "description":"Throw / Lift",
-                "identifier":"throw_lift_2"
-              },
-              {
-                "imageTitle":"throw_lift_3",
-                "description":"Throw / Lift",
-                "identifier":"throw_lift_3"
-              },
-              {
-                "imageTitle":"throw_lift_4",
-                "description":"Throw / Lift",
-                "identifier":"throw_lift_4"
-              },
-              {
-                "imageTitle":"turn",
-                "description":"Turn",
-                "identifier":"turn"
-              }
+                      {
+                      "imageTitle":"jumping_1",
+                      "description":"Jumping",
+                      "identifier":"jumping_1"
+                      },
+                      {
+                      "imageTitle":"jumping_2",
+                      "description":"Jumping",
+                      "identifier":"jumping_2"
+                      },
+                      {
+                      "imageTitle":"jumping_3",
+                      "description":"Jumping",
+                      "identifier":"jumping_3"
+                      },
+                      {
+                      "imageTitle":"jumping_4",
+                      "description":"Jumping",
+                      "identifier":"jumping_4"
+                      },
+                      {
+                      "imageTitle":"jumping_5",
+                      "description":"Jumping",
+                      "identifier":"jumping_5"
+                      },
+                      {
+                      "imageTitle":"jumping_6",
+                      "description":"Jumping",
+                      "identifier":"jumping_6"
+                      },
+                      {
+                      "imageTitle":"jumping_7",
+                      "description":"Jumping",
+                      "identifier":"jumping_7"
+                      },
+                      {
+                      "imageTitle":"jumping_8",
+                      "description":"Jumping",
+                      "identifier":"jumping_8"
+                      },
+                      {
+                      "imageTitle":"jumping_9",
+                      "description":"Jumping",
+                      "identifier":"jumping_9"
+                      },
+                      {
+                      "imageTitle":"jumping_10",
+                      "description":"Jumping",
+                      "identifier":"jumping_10"
+                      },
+                      {
+                      "imageTitle":"jumping_11",
+                      "description":"Jumping",
+                      "identifier":"jumping_11"
+                      },
+                      {
+                      "imageTitle":"jumping_12",
+                      "description":"Jumping",
+                      "identifier":"jumping_12"
+                      },
+                      {
+                      "imageTitle":"jumping_13",
+                      "description":"Jumping",
+                      "identifier":"jumping_13"
+                      },
+                      {
+                      "imageTitle":"jumping_14",
+                      "description":"Jumping",
+                      "identifier":"jumping_14"
+                      },
+                      {
+                      "imageTitle":"jumping_15",
+                      "description":"Jumping",
+                      "identifier":"jumping_15"
+                      },
+                      {
+                      "imageTitle":"kicking_1",
+                      "description":"Kicking",
+                      "identifier":"kicking_1"
+                      },
+                      {
+                      "imageTitle":"kicking_2",
+                      "description":"Kicking",
+                      "identifier":"kicking_2"
+                      },
+                      {
+                      "imageTitle":"kicking_3",
+                      "description":"Kicking",
+                      "identifier":"kicking_3"
+                      },
+                      {
+                      "imageTitle":"kicking_4",
+                      "description":"Kicking",
+                      "identifier":"kicking_4"
+                      },
+                      {
+                      "imageTitle":"kicking_5",
+                      "description":"Kicking",
+                      "identifier":"kicking_5"
+                      },
+                      {
+                      "imageTitle":"kicking_6",
+                      "description":"Kicking",
+                      "identifier":"kicking_6"
+                      },
+                      {
+                      "imageTitle":"kicking_7",
+                      "description":"Kicking",
+                      "identifier":"kicking_7"
+                      },
+                      {
+                      "imageTitle":"running",
+                      "description":"Running",
+                      "identifier":"running"
+                      },
+                      {
+                      "imageTitle":"standing_1",
+                      "description":"Standing",
+                      "identifier":"standing_1"
+                      },
+                      {
+                      "imageTitle":"standing_2",
+                      "description":"Standing",
+                      "identifier":"standing_2"
+                      },
+                      {
+                      "imageTitle":"standing_3",
+                      "description":"Standing",
+                      "identifier":"standing_3"
+                      },
+                      {
+                      "imageTitle":"standing_4",
+                      "description":"Standing",
+                      "identifier":"standing_4"
+                      },
+                      {
+                      "imageTitle":"standing_5",
+                      "description":"Standing",
+                      "identifier":"standing_5"
+                      },
+                      {
+                      "imageTitle":"standing_6",
+                      "description":"Standing",
+                      "identifier":"standing_6"
+                      },
+                      {
+                      "imageTitle":"standing_7",
+                      "description":"Standing",
+                      "identifier":"standing_7"
+                      },
+                      {
+                      "imageTitle":"standing_8",
+                      "description":"Standing",
+                      "identifier":"standing_8"
+                      },
+                      {
+                      "imageTitle":"standing_9",
+                      "description":"Standing",
+                      "identifier":"standing_9"
+                      },
+                      {
+                      "imageTitle":"standing_10",
+                      "description":"Standing",
+                      "identifier":"standing_10"
+                      },
+                      {
+                      "imageTitle":"standing_11",
+                      "description":"Standing",
+                      "identifier":"standing_11"
+                      },
+                      {
+                      "imageTitle":"standing_12",
+                      "description":"Standing",
+                      "identifier":"standing_12"
+                      },
+                      {
+                      "imageTitle":"standing_13",
+                      "description":"Standing",
+                      "identifier":"standing_13"
+                      },
+                      {
+                      "imageTitle":"standing_14",
+                      "description":"Standing",
+                      "identifier":"standing_14"
+                      },
+                      {
+                      "imageTitle":"standing_15",
+                      "description":"Standing",
+                      "identifier":"standing_15"
+                      },
+                      {
+                      "imageTitle":"standing_16",
+                      "description":"Standing",
+                      "identifier":"standing_16"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_1",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_1"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_2",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_2"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_3",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_3"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_4",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_4"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_5",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_5"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_6",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_6"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_7",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_7"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_8",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_8"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_9",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_9"
+                      },
+                      {
+                      "imageTitle":"throwing_lifting_10",
+                      "description":"Throwing-Lifting",
+                      "identifier":"throwing_lifting_10"
+                      },
+                      {
+                      "imageTitle":"turning_1",
+                      "description":"Turning",
+                      "identifier":"turning_1"
+                      },
+                      {
+                      "imageTitle":"turning_2",
+                      "description":"Turning",
+                      "identifier":"turning_2"
+                      },
+                      {
+                      "imageTitle":"turning_3",
+                      "description":"Turning",
+                      "identifier":"turning_3"
+                      },
+                      {
+                      "imageTitle":"turning_4",
+                      "description":"Turning",
+                      "identifier":"turning_4"
+                      },
+                      {
+                      "imageTitle":"walking_1",
+                      "description":"Walking",
+                      "identifier":"walking_1"
+                      },
+                      {
+                      "imageTitle":"walking_2",
+                      "description":"Walking",
+                      "identifier":"walking_2"
+                      }
             ]
           }
         ]
@@ -154,28 +319,61 @@
         {
             "transform": "YADLFullRaw",
             "inputMapping": [
-              {"parameter":"stance_base_of_support_1", "stepIdentifier":"yadl_full.stance_base_of_support_1"},
-              {"parameter":"stance_base_of_support_2", "stepIdentifier":"yadl_full.stance_base_of_support_2"},
-              {"parameter":"stance_base_of_support_3", "stepIdentifier":"yadl_full.stance_base_of_support_3"},
-              {"parameter":"stance_base_of_support_4", "stepIdentifier":"yadl_full.stance_base_of_support_4"},
-              {"parameter":"base_of_support_1", "stepIdentifier":"yadl_full.base_of_support_1"},
-              {"parameter":"base_of_support_2", "stepIdentifier":"yadl_full.base_of_support_2"},
-              {"parameter":"walk_1", "stepIdentifier":"yadl_full.walk_1"},
-              {"parameter":"walk_2", "stepIdentifier":"yadl_full.walk_2"},
-              {"parameter":"walk_3", "stepIdentifier":"yadl_full.walk_3"},
-              {"parameter":"jump_1", "stepIdentifier":"yadl_full.jump_1"},
-              {"parameter":"jump_2", "stepIdentifier":"yadl_full.jump_2"},
-              {"parameter":"jump_3", "stepIdentifier":"yadl_full.jump_3"},
-              {"parameter":"jump_4", "stepIdentifier":"yadl_full.jump_4"},
-              {"parameter":"jump_5", "stepIdentifier":"yadl_full.jump_5"},
-              {"parameter":"jump_6", "stepIdentifier":"yadl_full.jump_6"},
-              {"parameter":"kick_1", "stepIdentifier":"yadl_full.kick_1"},
-              {"parameter":"kick_2", "stepIdentifier":"yadl_full.kick_2"},
-              {"parameter":"throw_lift_1", "stepIdentifier":"yadl_full.throw_lift_1"},
-              {"parameter":"throw_lift_2", "stepIdentifier":"yadl_full.throw_lift_2"},
-              {"parameter":"throw_lift_3", "stepIdentifier":"yadl_full.throw_lift_3"},
-              {"parameter":"throw_lift_4", "stepIdentifier":"yadl_full.throw_lift_4"},
-              {"parameter":"turn", "stepIdentifier":"yadl_full.turn"},
+              {"parameter":"jumping_1", "stepIdentifier":"yadl_full.jumping_1"},
+              {"parameter":"jumping_2", "stepIdentifier":"yadl_full.jumping_2"},
+              {"parameter":"jumping_3", "stepIdentifier":"yadl_full.jumping_3"},
+              {"parameter":"jumping_4", "stepIdentifier":"yadl_full.jumping_4"},
+              {"parameter":"jumping_5", "stepIdentifier":"yadl_full.jumping_5"},
+              {"parameter":"jumping_6", "stepIdentifier":"yadl_full.jumping_6"},
+              {"parameter":"jumping_7", "stepIdentifier":"yadl_full.jumping_7"},
+              {"parameter":"jumping_8", "stepIdentifier":"yadl_full.jumping_8"},
+              {"parameter":"jumping_9", "stepIdentifier":"yadl_full.jumping_9"},
+              {"parameter":"jumping_10", "stepIdentifier":"yadl_full.jumping_10"},
+              {"parameter":"jumping_11", "stepIdentifier":"yadl_full.jumping_11"},
+              {"parameter":"jumping_12", "stepIdentifier":"yadl_full.jumping_12"},
+              {"parameter":"jumping_13", "stepIdentifier":"yadl_full.jumping_13"},
+              {"parameter":"jumping_14", "stepIdentifier":"yadl_full.jumping_14"},
+              {"parameter":"jumping_15", "stepIdentifier":"yadl_full.jumping_15"},
+              {"parameter":"kicking_1", "stepIdentifier":"yadl_full.kicking_1"},
+              {"parameter":"kicking_2", "stepIdentifier":"yadl_full.kicking_2"},
+              {"parameter":"kicking_3", "stepIdentifier":"yadl_full.kicking_3"},
+              {"parameter":"kicking_4", "stepIdentifier":"yadl_full.kicking_4"},
+              {"parameter":"kicking_5", "stepIdentifier":"yadl_full.kicking_5"},
+              {"parameter":"kicking_6", "stepIdentifier":"yadl_full.kicking_6"},
+              {"parameter":"kicking_7", "stepIdentifier":"yadl_full.kicking_7"},
+              {"parameter":"running", "stepIdentifier":"yadl_full.running"},
+              {"parameter":"standing_1", "stepIdentifier":"yadl_full.standing_1"},
+              {"parameter":"standing_2", "stepIdentifier":"yadl_full.standing_2"},
+              {"parameter":"standing_3", "stepIdentifier":"yadl_full.standing_3"},
+              {"parameter":"standing_4", "stepIdentifier":"yadl_full.standing_4"},
+              {"parameter":"standing_5", "stepIdentifier":"yadl_full.standing_5"},
+              {"parameter":"standing_6", "stepIdentifier":"yadl_full.standing_6"},
+              {"parameter":"standing_7", "stepIdentifier":"yadl_full.standing_7"},
+              {"parameter":"standing_8", "stepIdentifier":"yadl_full.standing_8"},
+              {"parameter":"standing_9", "stepIdentifier":"yadl_full.standing_9"},
+              {"parameter":"standing_10", "stepIdentifier":"yadl_full.standing_10"},
+              {"parameter":"standing_11", "stepIdentifier":"yadl_full.standing_11"},
+              {"parameter":"standing_12", "stepIdentifier":"yadl_full.standing_12"},
+              {"parameter":"standing_13", "stepIdentifier":"yadl_full.standing_13"},
+              {"parameter":"standing_14", "stepIdentifier":"yadl_full.standing_14"},
+              {"parameter":"standing_15", "stepIdentifier":"yadl_full.standing_15"},
+              {"parameter":"standing_16", "stepIdentifier":"yadl_full.standing_16"},
+              {"parameter":"throwing_lifting_1", "stepIdentifier":"yadl_full.throwing_lifting_1"},
+              {"parameter":"throwing_lifting_2", "stepIdentifier":"yadl_full.throwing_lifting_2"},
+              {"parameter":"throwing_lifting_3", "stepIdentifier":"yadl_full.throwing_lifting_3"},
+              {"parameter":"throwing_lifting_4", "stepIdentifier":"yadl_full.throwing_lifting_4"},
+              {"parameter":"throwing_lifting_5", "stepIdentifier":"yadl_full.throwing_lifting_5"},
+              {"parameter":"throwing_lifting_6", "stepIdentifier":"yadl_full.throwing_lifting_6"},
+              {"parameter":"throwing_lifting_7", "stepIdentifier":"yadl_full.throwing_lifting_7"},
+              {"parameter":"throwing_lifting_8", "stepIdentifier":"yadl_full.throwing_lifting_8"},
+              {"parameter":"throwing_lifting_9", "stepIdentifier":"yadl_full.throwing_lifting_9"},
+              {"parameter":"throwing_lifting_10", "stepIdentifier":"yadl_full.throwing_lifting_10"},
+              {"parameter":"turning_1", "stepIdentifier":"yadl_full.turning_1"},
+              {"parameter":"turning_2", "stepIdentifier":"yadl_full.turning_2"},
+              {"parameter":"turning_3", "stepIdentifier":"yadl_full.turning_3"},
+              {"parameter":"turning_4", "stepIdentifier":"yadl_full.turning_4"},
+              {"parameter":"walking_1", "stepIdentifier":"yadl_full.walking_1"},
+              {"parameter":"walking_2", "stepIdentifier":"yadl_full.walking_2"},
               {"parameter": "schemaID", "constant":{
                 "namespace": "Cornell",
                 "name": "yadl-full-assessment-dance",
